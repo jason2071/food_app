@@ -10,6 +10,13 @@ ThemeData theme() {
       elevation: 0,
       centerTitle: true,
       brightness: Brightness.light,
+      textTheme: TextTheme(
+        headline6: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     ),
     primaryColor: kPrimaryColor,
     accentColor: kPrimaryColor,
