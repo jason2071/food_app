@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:food_app/components/default_button.dart';
+import 'package:food_app/components/intro_image.dart';
 import 'package:food_app/constants.dart';
+import 'package:food_app/pages/intro_firstname/intro_firstname_screen.dart';
 import 'package:food_app/size_config.dart';
 
-import 'intro_image.dart';
-
 class Body extends StatelessWidget {
-  const Body({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     double sh = SizeConfig.screenHeight;
-    double sw = SizeConfig.screenWidth;
 
     return SizedBox(
       width: double.infinity,
@@ -42,6 +36,7 @@ class Body extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
+                      color: kTextColor,
                     ),
                   ),
                   SizedBox(height: 20),
@@ -49,6 +44,7 @@ class Body extends StatelessWidget {
                     "We deliver the best and freshest fruit salad in town. Order for a combo today!!!",
                     style: TextStyle(
                       fontSize: 16,
+                      color: kSubTextColor,
                     ),
                   ),
                   SizedBox(height: sh * 0.06),
@@ -56,7 +52,10 @@ class Body extends StatelessWidget {
                     width: double.infinity,
                     child: DefaultButton(
                       title: "Let's Continue",
-                      press: () {},
+                      press: () {
+                        Navigator.pushNamed(
+                            context, IntroFirstnameScreen.routeName);
+                      },
                     ),
                   ),
                 ],

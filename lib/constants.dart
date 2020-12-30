@@ -15,3 +15,7 @@ final kShadow = BoxShadow(
 );
 
 const kAnimationDuration = Duration(milliseconds: 250);
+
+// Key SharedPreferences
+const PREF_READ_INTRO_VIEW = "PREF_READ_INTRO_VIEW";
+const PREF_INTRO_NAME = "PREF_INTRO_NAME";
