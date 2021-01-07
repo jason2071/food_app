@@ -24,7 +24,7 @@ class FoodCard extends StatelessWidget {
 
     return Container(
       width: sw * 0.4,
-      height: sh * 0.23,
+      height: sh * 0.27,
       margin: EdgeInsets.only(left: 20),
       decoration: BoxDecoration(
         color: Colors.white,

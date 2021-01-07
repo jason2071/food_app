@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/components/default_button.dart';
 import 'package:food_app/components/intro_image.dart';
+import 'package:food_app/components/page_transition_animation.dart';
 import 'package:food_app/constants.dart';
 import 'package:food_app/pages/home/home_screen.dart';
 import 'package:food_app/size_config.dart';
@@ -46,39 +47,41 @@ class _BodyState extends State<Body> {
       ),
       width: double.infinity,
       color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: sh * 0.06),
-          Text(
-            "Get The Freshest Fruit Salad Combo",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-              color: kTextColor,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: sh * 0.06),
+            Text(
+              "Get The Freshest Fruit Salad Combo",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: kTextColor,
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          Text(
-            "We deliver the best and freshest fruit salad in town. Order for a combo today!!!",
-            style: TextStyle(
-              fontSize: 16,
-              color: kSubTextColor,
+            SizedBox(height: 20),
+            Text(
+              "We deliver the best and freshest fruit salad in town. Order for a combo today!!!",
+              style: TextStyle(
+                fontSize: 16,
+                color: kSubTextColor,
+              ),
             ),
-          ),
-          SizedBox(height: sh * 0.06),
-          SizedBox(
-            width: double.infinity,
-            child: DefaultButton(
-              title: "Let's Continue",
-              press: () {
-                setState(() {
-                  _step = 2;
-                });
-              },
+            SizedBox(height: sh * 0.06),
+            SizedBox(
+              width: double.infinity,
+              child: DefaultButton(
+                title: "Let's Continue",
+                press: () {
+                  setState(() {
+                    _step = 2;
+                  });
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -92,50 +95,55 @@ class _BodyState extends State<Body> {
       ),
       width: double.infinity,
       color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: sh * 0.06),
-          Text(
-            "What is your firstname?",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-              color: kTextColor,
-            ),
-          ),
-          SizedBox(height: 20),
-          Container(
-            height: 60,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            decoration: BoxDecoration(
-              color: kSecondaryColor,
-              borderRadius: BorderRadius.circular(kDefaultPadding * 0.5),
-            ),
-            child: TextField(
-              onChanged: (value) {
-                name = value;
-              },
-              style: TextStyle(fontSize: 20, color: kTextColor),
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: "Name",
-                hintStyle: TextStyle(color: Colors.black26),
-                contentPadding: EdgeInsets.symmetric(vertical: 10),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: sh * 0.06),
+            Text(
+              "What is your firstname?",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: kTextColor,
               ),
             ),
-          ),
-          SizedBox(height: sh * 0.06),
-          SizedBox(
-            width: double.infinity,
-            child: DefaultButton(
-              title: "Start Orcering",
-              press: () {
-                Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-              },
+            SizedBox(height: 20),
+            Container(
+              height: 60,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                color: kSecondaryColor,
+                borderRadius: BorderRadius.circular(kDefaultPadding * 0.5),
+              ),
+              child: TextField(
+                onChanged: (value) {
+                  name = value;
+                },
+                style: TextStyle(fontSize: 20, color: kTextColor),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Name",
+                  hintStyle: TextStyle(color: Colors.black26),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10),
+                ),
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: sh * 0.06),
+            SizedBox(
+              width: double.infinity,
+              child: DefaultButton(
+                title: "Start Ordering",
+                press: () {
+                  Navigator.push(
+                    context,
+                    buildPageRouteBuilder(child: HomeScreen()),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
